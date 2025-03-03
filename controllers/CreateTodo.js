@@ -1,11 +1,11 @@
-const ToDoSchema = require("../model/ToDoModel");
+const ToDoModel = require("../model/ToDoModel");
 
-const createToDo = async (req, res) => {
+const createToDoFunction = async (req, res) => {
   try {
     const { title, description } = req.body;
-    const response = await ToDoSchema.create({ title, description });
+    const response = await ToDoModel.create({ title, description });
 
-    res.status(200).json({
+    res.status(201).json({
       success: true,
       data: response,
       message: "data created successfully",
@@ -21,4 +21,4 @@ const createToDo = async (req, res) => {
   }
 };
 
-module.exports = createToDo;
+module.exports = createToDoFunction;
